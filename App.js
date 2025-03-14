@@ -6,8 +6,8 @@ import Flexbox from "./Flexbox";
 export default function App() {
   return (
     <View style={{padding: 16, paddingTop: 40}} >
-      {/* <CourseObjectives /> */}
-      <Flexbox />
+      <CourseObjectives />
+      {/* <Flexbox /> */}
       <StatusBar style="auto" />
     </View>
   );

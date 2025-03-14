@@ -1,37 +1,34 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 const Flexbox = () => {
   return (
-    <View style={{flexDirection: 'row-reverse'}}>
+    <View style={{flexDirection: 'row', width: '90%', height: 300, alignItems: 'center',}}>
       <View
         style={{
-          height: 80,
-          width: 80,
           backgroundColor: "red",
           justifyContent: "center",
           alignItems:"center",
+          flex: 1
       }}
       >
-        <Text style={{ color: "white" }}>1</Text>
+        <Text style={{ color: "white" }}>1 First box</Text>
       </View>
       <View
         style={{
-          height: 80,
-          width: 80,
           backgroundColor: "blue",
           justifyContent: "center",
           alignItems:"center",
+          flex:2
       }}
       >
         <Text style={{ color: "white" }}>2</Text>
       </View>
       <View
         style={{
-          height: 80,
-          width: 80,
           backgroundColor: "green",
           justifyContent: "center",
           alignItems:"center",
+          flex:1
       }}
       >
         <Text style={{ color: "white" }}>3</Text>
@@ -39,5 +36,12 @@ const Flexbox = () => {
     </View>
   );
 };
+
+
+const style = StyleSheet.create({
+  screen: {
+
+  }
+})
 
 export default Flexbox;
