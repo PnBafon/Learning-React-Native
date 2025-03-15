@@ -21,10 +21,10 @@ export default function CourseObjectives() {
     ]);
   };
 
-  const dropGoal = (index) => {
-    setGoals((goals) =>
-      goals.filter((goal, index) => console.log(goal, index))
-    );
+  const handelDropGoal = (goalId) => {
+    setGoals((currentGoals) => {
+      return currentGoals.filter((goal) => goal.id !== goalId);
+    });
   };
   return (
     <View style={{ paddingTop: 45, paddingHorizontal: 18 }}>
@@ -33,7 +33,13 @@ export default function CourseObjectives() {
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={goals}
-        renderItem={(itemData) => <GoalItem title={itemData.item.value} />}
+        renderItem={(itemData) => (
+          <GoalItem
+            onDelete={handelDropGoal}
+            id={itemData.item.id}
+            title={itemData.item.value}
+          />
+        )}
       />
     </View>
   );
