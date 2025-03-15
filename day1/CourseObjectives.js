@@ -13,12 +13,13 @@ import GoallInput from "../components/GoallInput";
 
 export default function CourseObjectives() {
   const [goals, setGoals] = useState([]);
-
+  const [isAddMode, setIsAddMode] = useState(false);
   const handleUpdateGoals = (inputGoal) => {
     setGoals((currentGoals) => [
       ...currentGoals,
       { id: (Math.random() * 1032).toString(), value: inputGoal },
     ]);
+    setIsAddMode(false);
   };
 
   const handelDropGoal = (goalId) => {
@@ -28,7 +29,8 @@ export default function CourseObjectives() {
   };
   return (
     <View style={{ paddingTop: 45, paddingHorizontal: 18 }}>
-      <GoallInput handleUpdateGoals={handleUpdateGoals} />
+      <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
+      <GoallInput handleUpdateGoals={handleUpdateGoals} visible={isAddMode} />
 
       <FlatList
         keyExtractor={(item, index) => item.id}

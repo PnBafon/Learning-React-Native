@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
+import { View, Button } from "react-native";
 
 import Day1 from "./day1/day1";
 
