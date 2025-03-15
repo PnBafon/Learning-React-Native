@@ -1,15 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import {View} from 'react-native'
-import CourseObjectives from "./CourseObjectives";
-import Flexbox from "./Flexbox";
+import { View } from "react-native";
+
+import Day1 from "./day1/day1";
 
 export default function App() {
   return (
-    <View style={{padding: 16, paddingTop: 40}} >
-      <CourseObjectives />
-      {/* <Flexbox /> */}
+    <View style={{ padding: 16, paddingTop: 40 }}>
+      <Day1 />
       <StatusBar style="auto" />
     </View>
   );
 }
-  

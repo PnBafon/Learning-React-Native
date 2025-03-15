@@ -65,15 +65,6 @@ export default function CourseObjectives() {
   );
 }
 
-const Todo = ({ goal, index, drop }) => {
-  return (
-    <View style={styles.listItem}>
-      <Text style={{ color: "black" }}>{goal}</Text>
-      <Button title="remove" />
-    </View>
-  );
-};
-
 const styles = StyleSheet.create({
   listItem: {
     flexDirection: "row",
