@@ -7,7 +7,9 @@ import {
   StyleSheet,
   FlatList,
 } from "react-native";
-import { ScrollView } from "react-native";
+
+import GoalItem from "../components/GoalItem";
+
 export default function CourseObjectives() {
   const [inputGoal, setInputGoal] = useState("");
   const [goals, setGoals] = useState([]);
@@ -55,26 +57,10 @@ export default function CourseObjectives() {
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={goals}
-        renderItem={(itemData) => (
-          <View style={styles.listItem}>
-            <Text>{itemData.item.value}</Text>
-          </View>
-        )}
+        renderItem={(itemData) => <GoalItem title={itemData.item.value} />}
       />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  listItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginVertical: 8,
-    borderWidth: 1,
-    borderColor: "gray",
-    borderRadius: 3,
-    paddingHorizontal: 8,
-    paddingVertical: 12,
-  },
-});
+const styles = StyleSheet.create({});
