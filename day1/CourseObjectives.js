@@ -33,8 +33,14 @@ export default function CourseObjectives() {
   };
 
   return (
-    <View style={{ paddingTop: 45, paddingHorizontal: 18 }}>
-      <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
+    <View style={{ paddingTop: 45, paddingHorizontal: 12 }}>
+      <View style={styles.button}>
+        <Button
+          title="Add New Goal"
+          color="white"
+          onPress={() => setIsAddMode(true)}
+        />
+      </View>
       <GoallInput
         handleUpdateGoals={handleUpdateGoals}
         visible={isAddMode}
@@ -56,4 +62,9 @@ export default function CourseObjectives() {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: "blue",
+    padding: 4,
+  },
+});
