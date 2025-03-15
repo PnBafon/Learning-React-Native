@@ -27,10 +27,19 @@ export default function CourseObjectives() {
       return currentGoals.filter((goal) => goal.id !== goalId);
     });
   };
+
+  const cancelGoalAdditionHandler = () => {
+    setIsAddMode(false);
+  };
+
   return (
     <View style={{ paddingTop: 45, paddingHorizontal: 18 }}>
       <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
-      <GoallInput handleUpdateGoals={handleUpdateGoals} visible={isAddMode} />
+      <GoallInput
+        handleUpdateGoals={handleUpdateGoals}
+        visible={isAddMode}
+        onCancle={cancelGoalAdditionHandler}
+      />
 
       <FlatList
         keyExtractor={(item, index) => item.id}
