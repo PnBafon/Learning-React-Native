@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  FlatList,
+} from "react-native";
+import { ScrollView } from "react-native";
 export default function CourseObjectives() {
   const [inputGoal, setInputGoal] = useState("");
   const [goals, setGoals] = useState([]);
@@ -9,7 +17,10 @@ export default function CourseObjectives() {
   };
 
   const handleUpdateGoals = () => {
-    setGoals((currentGoals) => [...currentGoals, inputGoal]);
+    setGoals((currentGoals) => [
+      ...currentGoals,
+      { id: (Math.random() * 1032).toString(), value: inputGoal },
+    ]);
     setInputGoal("");
   };
 
@@ -41,11 +52,15 @@ export default function CourseObjectives() {
         />
         <Button title="ADD" onPress={handleUpdateGoals} />
       </View>
-      <View>
-        {goals.map((goal, index) => {
-          return <Todo goal={goal} index={index} key={index} />;
-        })}
-      </View>
+      <FlatList
+        keyExtractor={(item, index) => item.id}
+        data={goals}
+        renderItem={(itemData) => (
+          <View style={styles.listItem}>
+            <Text>{itemData.item.value}</Text>
+          </View>
+        )}
+      />
     </View>
   );
 }
@@ -64,10 +79,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginVertical: 4,
+    marginVertical: 8,
     borderWidth: 1,
     borderColor: "gray",
     borderRadius: 3,
-    paddingHorizontal: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 12,
   },
 });
